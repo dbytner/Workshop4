@@ -35,6 +35,16 @@ public class BookController {
         mockBookService.add(book);
     }
 
+    @PutMapping("")
+    public void updateBook(@RequestBody Book book) {
+        mockBookService.updateBook(book);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        this.mockBookService.deleteBook(id);
+    }
+
     @GetMapping("/{id}")
     public Book getBook(@PathVariable Long id) {
         return this.mockBookService.readBook(id).orElseThrow(() -> {

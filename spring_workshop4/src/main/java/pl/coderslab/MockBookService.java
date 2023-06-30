@@ -37,6 +37,19 @@ public class MockBookService {
         return list.stream().filter(item -> item.getId().equals(id)).findFirst();
     }
 
+    public void deleteBook(long id){
+        if (readBook(id).isPresent()) {
+            list.remove(this.readBook(id).get());
+        }
+    }
+
+    public void updateBook(Book book){
+        if(this.readBook(book.getId()).isPresent()){
+            int indexOf = list.indexOf(this.readBook(book.getId()).get());
+            list.set(indexOf, book);
+        }
+    }
+
     public static Long getNextId() {
         return nextId;
     }

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MockBookService {
 
     private static Long nextId = 4L;
